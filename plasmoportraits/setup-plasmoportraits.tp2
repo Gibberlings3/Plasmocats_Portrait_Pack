@@ -1,0 +1,308 @@
+BACKUP ~plasmoportraits/backup~
+SUPPORT ~https://www.gibberlings3.net/forums/forum/28-miscellaneous-released-mods/~
+
+VERSION ~v3~
+
+README ~plasmoportraits/readme-plasmoportraits.html~
+
+ALWAYS
+
+  ACTION_IF NOT VARIABLE_IS_SET cd_always THEN BEGIN // check to make this happen only once per install
+    
+	OUTER_SET cd_always = 1
+	INCLUDE ~plasmoportraits/lib/cd_portrait_copy.tph~
+  
+  END
+
+END
+
+LANGUAGE ~English~ ~english~ ~plasmoportraits/english/setup.tra~
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Copy all portraits for use by player characters  \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @0
+
+ACTION_FOR_EACH file IN pc2aeri pc2anom pc2cern pc2edwi pc2imoe pc2jahe pc2jan pc2keld pc2korg pc2mazz pc2mins pc2nali pc2vico BEGIN
+						
+  LAF cd_pc_portrait_copy STR_VAR source = "%file%" source_path = "plasmoportraits/portraits" END
+
+END
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Aerie                   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @100
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2aeri" destination = "naerie" source_path = "plasmoportraits/portraits" END
+
+COPY_EXISTING_REGEXP GLOB ~.*\.cre~ ~override~
+  READ_LONG 0x08 "name"
+  PATCH_IF (("%name%" = 9184) OR ("%name%" = 9185)) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY_IF_IT_CHANGES
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Anomen                  \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @200
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2anom" destination = "nanomen" source_path = "plasmoportraits/portraits" END 
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "nanomenm" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Cernd                   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @300
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2cern" destination = "ncernd" source_path = "plasmoportraits/portraits" END 
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "ncerndm" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Edwin                   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @400
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2edwi" destination = "nedwin" source_path = "plasmoportraits/portraits" END 
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "nEdwinm" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Imoen                   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @500
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2imoe" destination = "nimoen" source_path = "plasmoportraits/portraits" END 
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "nimoenm" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Jaheira                 \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @600
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2jahe" destination = "njaheir" source_path = "plasmoportraits/portraits" END 
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "nJaheirm" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Jan                     \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @700
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2jan" destination = "njan" source_path = "plasmoportraits/portraits" END
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "nJanm" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Keldorn                 \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @800
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2keld" destination = "nkeldor" source_path = "plasmoportraits/portraits" END
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "nKeldorm" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Korgan                  \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @900
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2korg" destination = "nkorgan" source_path = "plasmoportraits/portraits" END
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "nKorganm" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Mazzy                   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1000
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2mazz" destination = "nmazzy" source_path = "plasmoportraits/portraits" END
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "nMazzym" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Minsc                   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1100
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2mins" destination = "nminsc" source_path = "plasmoportraits/portraits" END
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "nMinscm" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Nalia                   \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1200
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2nali" destination = "nnalia" source_path = "plasmoportraits/portraits" END
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "nNaliam" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
+
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////                                                  \\\\\
+///// Install new portrait for Viconia                 \\\\\
+/////                                                  \\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
+
+BEGIN @1300
+REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+
+LAF cd_portrait_copy STR_VAR source = "pc2vico" destination = "nvicon" source_path = "plasmoportraits/portraits" END
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  READ_ASCII 0x3c "portrait"
+  PATCH_IF ("%portrait%" STRING_COMPARE_CASE "nViconm" = 0) BEGIN
+    WRITE_BYTE 0x32 0
+    WRITE_BYTE 0x2f 87
+  END
+  BUT_ONLY
