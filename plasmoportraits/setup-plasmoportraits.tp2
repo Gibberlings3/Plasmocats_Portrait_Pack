@@ -1,9 +1,9 @@
 BACKUP ~plasmoportraits/backup~
 SUPPORT ~https://www.gibberlings3.net/forums/forum/28-miscellaneous-released-mods/~
 
-VERSION ~v3~
+VERSION ~v4~
 
-README ~plasmoportraits/readme-plasmoportraits.html~
+README ~plasmoportraits/readme-plasmoportraits-%LANGUAGE%.html~ ~plasmoportraits/readme-plasmoportraits.html~
 
 ALWAYS
 
@@ -16,7 +16,8 @@ ALWAYS
 
 END
 
-LANGUAGE ~English~ ~english~ ~plasmoportraits/english/setup.tra~
+LANGUAGE ~English~  ~english~ ~plasmoportraits/lang/english/setup.tra~
+LANGUAGE ~Francais~ ~french~  ~plasmoportraits/lang/french/setup.tra~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -29,7 +30,7 @@ LANGUAGE ~English~ ~english~ ~plasmoportraits/english/setup.tra~
 BEGIN @0
 
 ACTION_FOR_EACH file IN pc2aeri pc2anom pc2cern pc2edwi pc2imoe pc2jahe pc2jan pc2keld pc2korg pc2mazz pc2mins pc2nali pc2vico BEGIN
-						
+
   LAF cd_pc_portrait_copy STR_VAR source = "%file%" source_path = "plasmoportraits/portraits" END
 
 END
@@ -53,7 +54,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.cre~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY_IF_IT_CHANGES
+BUT_ONLY_IF_IT_CHANGES
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -74,7 +75,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -95,7 +96,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -116,7 +117,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -137,7 +138,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -158,7 +159,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -179,7 +180,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -200,7 +201,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -221,7 +222,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -242,7 +243,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -263,7 +264,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -284,7 +285,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -305,4 +306,4 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
     WRITE_BYTE 0x32 0
     WRITE_BYTE 0x2f 87
   END
-  BUT_ONLY
+BUT_ONLY
