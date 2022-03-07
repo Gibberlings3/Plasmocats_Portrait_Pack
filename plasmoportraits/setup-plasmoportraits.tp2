@@ -17,7 +17,8 @@ ALWAYS
 END
 
 LANGUAGE ~English~  ~english~ ~plasmoportraits/lang/english/setup.tra~
-LANGUAGE ~Francais~ ~french~  ~plasmoportraits/lang/french/setup.tra~
+LANGUAGE ~Francais~ ~french~  ~plasmoportraits/lang/english/setup.tra~
+                              ~plasmoportraits/lang/french/setup.tra~
 
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
@@ -28,6 +29,7 @@ LANGUAGE ~Francais~ ~french~  ~plasmoportraits/lang/french/setup.tra~
 /////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\/////\\\\\
 
 BEGIN @0
+LABEL ~cd_plasmocat_portrait_pack_pc~
 
 ACTION_FOR_EACH file IN pc2aeri pc2anom pc2cern pc2edwi pc2imoe pc2jahe pc2jan pc2keld pc2korg pc2mazz pc2mins pc2nali pc2vico BEGIN
 
@@ -45,6 +47,7 @@ END
 
 BEGIN @100
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_aerie~
 
 LAF cd_portrait_copy STR_VAR source = "pc2aeri" destination = "naerie" source_path = "plasmoportraits/portraits" END
 
@@ -66,6 +69,7 @@ BUT_ONLY_IF_IT_CHANGES
 
 BEGIN @200
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_anomen~
 
 LAF cd_portrait_copy STR_VAR source = "pc2anom" destination = "nanomen" source_path = "plasmoportraits/portraits" END 
 
@@ -87,6 +91,7 @@ BUT_ONLY
 
 BEGIN @300
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_cernd~
 
 LAF cd_portrait_copy STR_VAR source = "pc2cern" destination = "ncernd" source_path = "plasmoportraits/portraits" END 
 
@@ -108,6 +113,7 @@ BUT_ONLY
 
 BEGIN @400
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_edwin~
 
 LAF cd_portrait_copy STR_VAR source = "pc2edwi" destination = "nedwin" source_path = "plasmoportraits/portraits" END 
 
@@ -129,6 +135,7 @@ BUT_ONLY
 
 BEGIN @500
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_imoen~
 
 LAF cd_portrait_copy STR_VAR source = "pc2imoe" destination = "nimoen" source_path = "plasmoportraits/portraits" END 
 
@@ -150,6 +157,7 @@ BUT_ONLY
 
 BEGIN @600
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_jaheira~
 
 LAF cd_portrait_copy STR_VAR source = "pc2jahe" destination = "njaheir" source_path = "plasmoportraits/portraits" END 
 
@@ -171,6 +179,7 @@ BUT_ONLY
 
 BEGIN @700
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_jan~
 
 LAF cd_portrait_copy STR_VAR source = "pc2jan" destination = "njan" source_path = "plasmoportraits/portraits" END
 
@@ -192,6 +201,7 @@ BUT_ONLY
 
 BEGIN @800
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_keldorn~
 
 LAF cd_portrait_copy STR_VAR source = "pc2keld" destination = "nkeldor" source_path = "plasmoportraits/portraits" END
 
@@ -213,6 +223,7 @@ BUT_ONLY
 
 BEGIN @900
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_korgan~
 
 LAF cd_portrait_copy STR_VAR source = "pc2korg" destination = "nkorgan" source_path = "plasmoportraits/portraits" END
 
@@ -234,6 +245,7 @@ BUT_ONLY
 
 BEGIN @1000
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_mazzy~
 
 LAF cd_portrait_copy STR_VAR source = "pc2mazz" destination = "nmazzy" source_path = "plasmoportraits/portraits" END
 
@@ -255,6 +267,7 @@ BUT_ONLY
 
 BEGIN @1100
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_minsc~
 
 LAF cd_portrait_copy STR_VAR source = "pc2mins" destination = "nminsc" source_path = "plasmoportraits/portraits" END
 
@@ -276,6 +289,7 @@ BUT_ONLY
 
 BEGIN @1200
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_nalia~
 
 LAF cd_portrait_copy STR_VAR source = "pc2nali" destination = "nnalia" source_path = "plasmoportraits/portraits" END
 
@@ -297,6 +311,7 @@ BUT_ONLY
 
 BEGIN @1300
 REQUIRE_PREDICATE GAME_IS ~bg2 tob bg2ee eet bgt~ @1
+LABEL ~cd_plasmocat_portrait_pack_viconia~
 
 LAF cd_portrait_copy STR_VAR source = "pc2vico" destination = "nvicon" source_path = "plasmoportraits/portraits" END
 
